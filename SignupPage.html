@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, 
+initial-scale=1.0">
+<title>Signup Form</title> 
+<link rel="stylesheet" href="./CSS/style_signup.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="process-signup.php" method="post">
+            <h1>Signup</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Full Name"
+                  name="Fullname" />
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" placeholder="Email-Id" name="email" />
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="tel" placeholder="Contact Number"  name="contact_number" />
+                <i class='bx bxs-phone'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" />
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Confirm Password" name="password" />
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <button type="submit" class="btn">Register</button>
+            
+        </form>
+    </div>
+</body>
+
+</html>
