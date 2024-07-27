@@ -1,4 +1,3 @@
-# deep learnihgn lib
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch.nn.functional as F
@@ -9,35 +8,37 @@ import tqdm
 import numpy as np
 import matplotlib.pyplot as plt
 from transformers import pipeline
+import re
+import json
 
-
-DATA_DIR = "./data/product_review.csv"
-
-
-#data reading
+DATA_DIR = "/home/aman/code/ML/demand_prd/REFACTORED /DATA/amazon_reviews.csv"
 df = pd.read_csv(DATA_DIR)
 
-#data preprocessing
-df = df.drop("product" , axis=1)
-df = df.drop("title" , axis=1)
-df["date"] = [i[33:] for i in df["date"]]
-df["date"] = [i[3:] if "on " in i else i for i in df["date"]]
-df["date"] = pd.to_datetime(df["date"])
-df = df.dropna()
+def data_preprocess(df):
+    for text_date in df['date']:
+        # Check if there's a match before attempting to access the group
+        if match := re.search(r'\d{2} \w+ \d{4}', text_date):
+            date_str = match.group(0)
+            date_obj = pd.to_datetime(date_str, format='%d %B %Y')
+            
+            # print(date_obj)  # Do something with the date object
+        else:
+            date_str = text_date[21:]
+            date_obj = pd.to_datetime(date_str, format="%d %B %Y")
+            # print(f"{date_obj}")  # Handle missing dates
 
-# to remove non integer data 
-def remove_non_string_data(df):
-    df = df[df['body'].apply(lambda x: isinstance(x, str))]
-    return df
+        df["date_obj"] = date_obj
+        df.drop('date' , axis=1)
 
-# MODEL
+# Assuming you have your DataFrame (df)
+data_preprocess(df)
+
 sentiment_analysis = pipeline("sentiment-analysis",model="siebert/sentiment-roberta-large-english")
 model_name = "cardiffnlp/twitter-roberta-base-sentiment"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
 
-# sentiment functionalities 
 def analyze_sentiment(text):
     '''function to return sentiments mapping to given text'''
     inputs = tokenizer(text , return_tensors="pt")
@@ -47,6 +48,7 @@ def analyze_sentiment(text):
     sentiment = torch.argmax(probs , dim=-1).item()
     sentiment_map = {0 : "negative" , 1 : "neutral" , 2  :"positive"}
     return sentiment_map[sentiment]
+
 
 def senti_score(dataset):
     '''adding labels column in the dataframe for the respective text'''
@@ -67,20 +69,22 @@ def senti_score(dataset):
     
     return list_of_senti
 
-# creating sentiment lables 
 df["labels"] = senti_score(dataset=df)
 
-#resulting values from rating and lables rating * labels = final value
-df["values"] = df["rating"] * df["labels"]
+all_labels = [1,0,1]
+all_labels_list = list(df["labels"].values)
 
-# extracting imp feature from the original dataset 
-df.sort_values(by="date" , inplace=True)
-df_grp = df.groupby('date')['values'].sum().reset_index()
-df_grp_json = df_grp.to_json()
+counts_of_labels = [all_labels_list.count(1) , all_labels_list.count(0) , all_labels_list.count(-1)]
 
-# jsonify the data and return the json
-json_file_path = 'amazon_review.json'
+data_for_plotting = {"x" : all_labels , "y" : counts_of_labels}
 
-with open(json_file_path , 'w') as json_file:
-    json_file.write(df_grp_json)
+
+plotting_data = pd.DataFrame(data_for_plotting)
+plotting_data_json = plotting_data.to_json()
+
+with open('plotting_data.json', 'w') as f:
+    json.dump(plotting_data_json, f)
+
+
+
 
