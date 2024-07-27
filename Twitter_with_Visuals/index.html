@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #121212;  /* Dark background for the entire page */
+            color: #ffffff;             /* Light text color */
+            font-family: Arial, sans-serif; /* Clean font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            border: 1px solid #333; /* Dark border around the canvas */
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3); /* Light shadow effect */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myChart" width="600" height="400"></canvas>
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('twitter_review.json');  // Replace with the path to your JSON file
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const jsonData = await response.json();
+
+                // Convert JSON objects to arrays
+                const labels = Object.values(jsonData.x);  // Use x values for labels
+                const data = Object.values(jsonData.y);    // Use y values for data
+
+                console.log('Labels:', labels);
+                console.log('Data:', data);
+
+                const ctx = document.getElementById('myChart').getContext('2d');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Model Output',
+                            data: data,
+                            backgroundColor: '#44E6ED', /* Bright blue color */
+                            borderColor: '#003366', /* Dark blue color */
+                            borderWidth: 2,
+                            barThickness: 30, /* Set bar thickness */
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeInOutQuart'
+                        },
+                        scales: {
+                            x: {
+                                ticks: {
+                                    color: '#ffffff', /* Light color for x-axis labels */
+                                },
+                                grid: {
+                                    color: '#ffffff', /* White color for x-axis grid lines */
+                                    lineWidth: 1, /* Line width */
+                                    borderDash: [5, 5] /* Optional dotted effect */
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    color: '#ffffff', /* Light color for y-axis labels */
+                                },
+                                grid: {
+                                    color: '#ffffff', /* White color for y-axis grid lines */
+                                    lineWidth: 1, /* Line width */
+                                    borderDash: [5, 5] /* Optional dotted effect */
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    color: '#ffffff',
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#333',
+                                titleColor: '#ffffff',
+                                bodyColor: '#ffffff',
+                                padding: 10,
+                                displayColors: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.raw}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching the JSON data:', error);
+            }
+        }
+        fetchData();
+    </script>
+</body>
+</html>
