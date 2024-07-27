@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Dashboard Admin</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    
+  </head>
+  <div class="box-menu">
+    <div class="wrapper">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="menu">
+      <a href="#" class="active"><span class="icon fa fa-info-circle"></span> <span class="text">Home</span></a>
+      <a href="./about.html"><span class="icon fa fa-suitcase"></span> <span class="text">About Us</span></a>
+      <a href="./contact-us.html"><span class="icon fa fa-phone"></span> <span class="text">Contact-Us</span></a>
+
+    </div>
+  </div>
+  
+  
+
+
+
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.box-menu .wrapper').on('click', function(){
+        $('.box-menu').toggleClass('full-menu');
+        $('.hamburger').toggleClass('active');
+      });
+      $('a').on('click', function(){
+        $(this).siblings('a').removeClass('active');
+        $(this).addClass('active');
+      });
+    });
+  </script>
+
+<div class="container">
+  <div class="box">
+    <span></span>
+    <div class="content">
+      <h2>Sales Analysis</h2>
+      <p>Using graphs and all</p>
+      <a href="./sales.html">Read More</a>
+    </div>
+  </div>
+  <div class="box">
+    <span></span>
+    <div class="content">
+      <h2>Customer Insights</h2>
+      <p>customer reviews using datasets </p>
+      <a href="./customer.html">Read More</a>
+    </div>
+  </div>
+
+  <button> Log-Out
+  </button>
+  
+</html>
