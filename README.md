@@ -93,4 +93,7 @@ Place the msedgedriver.exe in a suitable directory and update the path in the sc
 # DATA[DATA]
 * toy dataset for testing various functionalities
 
+# This file is part of the InsightMantra.
+# It is licensed under the MIT License. See the LICENSE file for more details.
+
                
