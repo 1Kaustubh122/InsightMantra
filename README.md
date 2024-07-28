@@ -132,4 +132,5 @@ Feel free to submit issues or pull requests if you have suggestions for improvem
 with open("README.md", "w") as readme_file:
     readme_file.write(readme_content)
 
-
+# This file is part of the InsightMantra.
+# It is licensed under the MIT License. See the LICENSE file for more details.
