@@ -1,7 +1,7 @@
 # InsightMantra
 
 # Description<br>
-all of machine leanring algorithms used in the projects 
+All of machine learning algorithms used in the projects 
 
 # AMAZON[AMAZON]<br>
 ### Amazon Reviews Scraper
