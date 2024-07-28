@@ -1,10 +1,14 @@
+
+# necessary libraries
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
 import time
 import json
 
+
 def get_amazon_product_details(product_name):
+    ''' get in the product name and return the product details which comprises of input companies and their amount of products sold'''
     # Specify the path to the Edge WebDriver executable
     edge_driver_path = r"C:\Users\asus\Desktop\msedgedriver.exe"
     options = webdriver.EdgeOptions()
@@ -42,6 +46,7 @@ def get_amazon_product_details(product_name):
 
 # product details
 product_name = "phones"
+# search url for searching in web
 amazon_search_url = f"https://www.amazon.in/s?k={'+'.join(product_name.split())}"
 product_info = get_amazon_product_details(product_name)
 
@@ -70,8 +75,10 @@ def calculate_ratios(data_dict):
   ratios = {key: value / total_value for key, value in data_dict.items()}
   return ratios
 
+# ratios to calculate the market share of different companies
 ratios = calculate_ratios(cons_company)
 
+# json dir for storing the json data
 json_dir = ""
 
 with open(json_dir , 'w') as f:
