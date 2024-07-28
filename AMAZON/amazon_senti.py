@@ -71,7 +71,7 @@ def senti_score(dataset):
 
 df["labels"] = senti_score(dataset=df)
 
-all_labels = [1,0,1]
+all_labels = [1,0,-1]
 all_labels_list = list(df["labels"].values)
 
 counts_of_labels = [all_labels_list.count(1) , all_labels_list.count(0) , all_labels_list.count(-1)]
