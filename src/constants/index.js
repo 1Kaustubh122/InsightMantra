@@ -41,6 +41,7 @@ export const navigation = [
     id: "0",
     title: "Features",
     url: "#features",
+<<<<<<< HEAD
   },
   {
     id: "1",
@@ -56,6 +57,9 @@ export const navigation = [
     id: "3",
     title: "Roadmap",
     url: "#roadmap",
+=======
+    onlyMobile: true,
+>>>>>>> e5fc04402ff72ca0d6b0572002513afe7ef9f86e
   },
   {
     id: "4",
@@ -249,7 +253,11 @@ export const benefits = [
     backgroundUrl: "./src/assets/benefits/card-1.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
+<<<<<<< HEAD
     light: true,
+=======
+    
+>>>>>>> e5fc04402ff72ca0d6b0572002513afe7ef9f86e
   },
   {
     id: "1",
@@ -258,7 +266,7 @@ export const benefits = [
     backgroundUrl: "./src/assets/benefits/card-2.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
-    light: true,
+    
   },
   {
     id: "2",
@@ -267,7 +275,11 @@ export const benefits = [
     backgroundUrl: "./src/assets/benefits/card-3.svg",
     iconUrl: benefitIcon3,
     imageUrl: benefitImage2,
+<<<<<<< HEAD
     light: true,
+=======
+    
+>>>>>>> e5fc04402ff72ca0d6b0572002513afe7ef9f86e
   },
   {
     id: "3",
@@ -276,7 +288,7 @@ export const benefits = [
     backgroundUrl: "./src/assets/benefits/card-4.svg",
     iconUrl: benefitIcon4,
     imageUrl: benefitImage2,
-    light: true,
+    
   },
   {
     id: "4",
@@ -285,7 +297,11 @@ export const benefits = [
     backgroundUrl: "./src/assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
+<<<<<<< HEAD
     light: true,
+=======
+    
+>>>>>>> e5fc04402ff72ca0d6b0572002513afe7ef9f86e
   },
   {
     id: "5",
@@ -294,7 +310,11 @@ export const benefits = [
     backgroundUrl: "./src/assets/benefits/card-6.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
+<<<<<<< HEAD
     light: true,
+=======
+    
+>>>>>>> e5fc04402ff72ca0d6b0572002513afe7ef9f86e
   },
 ];
 
