@@ -9,8 +9,13 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 def get_amazon_reviews(product_url, min_reviews=100):
+    '''
+    input = product url of amazon , min_reviews = default set to 100
+    output = list of all the revies body and their respective date
+    '''
+    
     # Path to the Edge WebDriver executable
-    edge_driver_path = 'C:/msedgedriver.exe'  # Replace with the actual path
+    edge_driver_path = 'C:/msedgedriver.exe'  # replace the path with your path of msedgedriver
 
     # Initialize the Selenium WebDriver for Microsoft Edge
     options = webdriver.EdgeOptions()
@@ -69,8 +74,9 @@ def get_amazon_reviews(product_url, min_reviews=100):
     
     return reviews
 
-
+# place your product URL here
 product_url = ""
+# getting the reviews
 reviews = get_amazon_reviews(product_url)
 
 df = pd.DataFrame(reviews)
