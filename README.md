@@ -15,7 +15,6 @@ This is a frontend project built with HTML, CSS, JavaScript, React, Chart.js, an
 - [Configuration](#configuration)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
