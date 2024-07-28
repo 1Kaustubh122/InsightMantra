@@ -13,8 +13,8 @@ This is a frontend project built with HTML, CSS, JavaScript, React, Chart.js, an
 - [Project Structure](#project-structure)
 - [Available Scripts](#available-scripts)
 - [Configuration](#configuration)
-- [Deployment](#deployment)
 - [Contributing](#contributing)
+- [Credits](#credits)
 
 ## Installation
 
