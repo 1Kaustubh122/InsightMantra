@@ -6,14 +6,13 @@ import json
 
 def get_amazon_product_details(product_name):
     # Specify the path to the Edge WebDriver executable
-    edge_driver_path = "C:\msedgedriver.exe" 
-
+    edge_driver_path = r"C:\Users\asus\Desktop\msedgedriver.exe"
     options = webdriver.EdgeOptions()
     options.add_argument("--headless")  
     driver = webdriver.Edge(service=Service(edge_driver_path), options=options)
     
     # URL
-    amazon_search_url = f"https://www.amazon.com/s?k={'+'.join(product_name.split())}"
+    amazon_search_url = f"https://www.amazon.in/s?k={'+'.join(product_name.split())}"
     # indiamart_search_url = f""
     
     # open the URL
@@ -28,15 +27,10 @@ def get_amazon_product_details(product_name):
     for product in products:
         try:
             title = product.find_element(By.TAG_NAME, 'h2').text.strip()
-            # seller = product.find_element(By.CSS_SELECTOR, 'span.a-size-base-plus.a-color-base.a-text-normal').text.strip()
-            # rating = product.find_element(By.CSS_SELECTOR, 'span.a-size-base s-underline-text').text.strip()
-            # reviews = product.find_element(By.CSS_SELECTOR, 'span.a-size-base').text.strip()
             quantity_sold = product.find_element(By.CSS_SELECTOR, 'span.a-size-base.s-underline-text').text.strip()
 
             product_details.append({
                 'title': title,
-                # 'seller': seller,
-                # 'rating': rating,
                 'quantity_sold': quantity_sold,
             })
         except Exception as e:
@@ -45,8 +39,10 @@ def get_amazon_product_details(product_name):
 
     driver.quit()
     return product_details
-product_name = "condoms"
-amazon_search_url = f"https://www.amazon.com/s?k={'+'.join(product_name.split())}"
+
+# product details
+product_name = "phones"
+amazon_search_url = f"https://www.amazon.in/s?k={'+'.join(product_name.split())}"
 product_info = get_amazon_product_details(product_name)
 
 company = []
