@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a Flask backend project designed to handle [specific functionality]. The project provides a RESTful API for [describe what your API does].
+This is a Flask backend project designed to handle the Insight Mantra Backend. The project provides a RESTful API.
 
 ## Table of Contents
 
