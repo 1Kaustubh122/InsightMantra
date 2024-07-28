@@ -110,3 +110,6 @@ module.exports = {
 
 ## Credits
 * This project was inspired by and uses code from the Brainwave repository by Adrian Hajdin.
+
+# This file is part of the InsightMantra.
+# It is licensed under the MIT License. See the LICENSE file for more details.
