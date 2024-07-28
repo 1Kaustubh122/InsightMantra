@@ -38,6 +38,7 @@ future_dates = model_prophet.make_future_dataframe(periods=100)
 # future prediction
 forecast = model_prophet.predict(future_dates)
 
+# convert forecasted data into json for plotting
 forecast_json = forecast.to_json()
 
 json_file_path = 'sales_forecasting.json'
