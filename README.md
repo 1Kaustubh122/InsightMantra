@@ -70,7 +70,7 @@ your-repo-name/
 └── README.md
 
 ```
-###Available Scripts
+## Available Scripts
 In the project directory, you can run:
 
 ```npm start```
@@ -81,10 +81,10 @@ Open http://localhost:3000 to view it in the browser.
 Builds the app for production to the build folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#Configuration
+## Configuration
 Configuration for Tailwind CSS is managed in the tailwind.config.js file. You can customize the Tailwind CSS configuration to suit your needs.
 
-#Example Configuration
+## Example Configuration
 javascript
 Copy code
 module.exports = {
@@ -99,15 +99,15 @@ module.exports = {
   plugins: [],
 }
 
-#Contributing
-*Contributions are welcome! Please follow these steps to contribute:
+## Contributing
+* Contributions are welcome! Please follow these steps to contribute:
 
-*Fork the repository.
-*Create a new branch (git checkout -b feature-branch).
-*Make your changes.
-*Commit your changes (git commit -m 'Add some feature').
-*Push to the branch (git push origin feature-branch).
-*Open a pull request.
+* Fork the repository.
+* Create a new branch (git checkout -b feature-branch).
+* Make your changes.
+* Commit your changes (git commit -m 'Add some feature').
+* Push to the branch (git push origin feature-branch).
+* Open a pull request.
 
-#Credits
-*This project was inspired by and uses code from the Brainwave repository by Adrian Hajdin.
+## Credits
+* This project was inspired by and uses code from the Brainwave repository by Adrian Hajdin.
