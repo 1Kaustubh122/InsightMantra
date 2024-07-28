@@ -13,6 +13,7 @@ This is a Flask backend project designed to handle the Insight Mantra Backend. T
 - [Running Tests](#running-tests)
 - [Contributing](#contributing)
 
+
 ## Installation
 
 1. Clone the repository:
@@ -141,4 +142,6 @@ Contributions are welcome! Please follow these steps to contribute:
 * Commit your changes (git commit -m 'Add some feature').
 * Push to the branch (git push origin feature-branch).
 * Open a pull request.
-   
+
+# This file is part of the InsightMantra.
+# It is licensed under the MIT License. See the LICENSE file for more details.
